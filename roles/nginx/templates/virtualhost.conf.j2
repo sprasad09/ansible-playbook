@@ -1,0 +1,24 @@
+server {
+    listen          80;
+    server_name     {{ server_name }};
+
+    access_log  /var/log/nginx/{{ server_name }}_access.log;
+    error_log  /var/log/nginx/{{ server_name }}_error.log;
+
+    proxy_buffering on;
+    proxy_buffer_size 1k;
+    proxy_buffers 24 4k;
+    proxy_busy_buffers_size 8k;
+    proxy_max_temp_file_size 2048m;
+    proxy_temp_file_write_size 32k;
+
+    location / {
+      proxy_pass      http://localhost:3000;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection 'upgrade';
+      proxy_set_header Host $host;
+      proxy_cache_bypass $http_upgrade;
+    }
+  }
+
