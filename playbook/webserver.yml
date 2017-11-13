@@ -5,7 +5,7 @@
     gather_facts: False
     tags: provisioning
     pre_tasks:
-     - include_vars: ec2-vars/{{type}}.yaml
+     - include_vars: ec2-vars/{{type}}.yml
 
     # Task that will be used to Launch/Create an EC2 Instance
     tasks:
