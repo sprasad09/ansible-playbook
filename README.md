@@ -102,4 +102,5 @@ ansible-playbook dbserver.yml --tags "mysql"   # mysql deploy
 ```
  
 Ansible requires nothing more than a password or SSH key in order to start managing systems. Ansible is easy to install and the playbook based roles can be run from any computer/server that has ansible installed. 
+
 Ansible  pushes out small programs, called "Ansible Modules", by connecting to the nodes over SSH. Because these modules are simple Python scripts, and Ansible is agent-less, the target hosts only require an SSH connection and Python installed. Besides simplicity, which is another advantage of using Ansible vs Chef or Puppet, there are no servers, daemons, or databases required - all that is needed is to install Ansible on the host, Python on the targets, and have SSH access.

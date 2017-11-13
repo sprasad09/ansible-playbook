@@ -48,7 +48,7 @@
             delete_on_termination: true
         register: ec2
 
-      - name: Add the newly created EC2 instance(s) to the local host group (located inside the directory)
+      - name: Add the newly created EC2 instance(s) to the webserver host group inside the host file
         local_action: lineinfile 
                       dest="../hosts" 
                       regexp={{ item.private_ip }} 

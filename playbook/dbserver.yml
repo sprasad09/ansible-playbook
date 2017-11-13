@@ -15,7 +15,7 @@
           module: ec2_group
           vpc_id: "{{ vpc }}"
           name: "{{ ec2_security_group }}"
-          description: Security Group for webserver Servers
+          description: Security Group for dbserver Servers
           region: "{{ ec2_region }}"
           rules:
             - proto: tcp
@@ -44,7 +44,7 @@
             delete_on_termination: true
         register: ec2
 
-      - name: Add the newly created EC2 instance(s) to the local host group (located inside the directory)
+      - name: Add the newly created EC2 instance(s) to the dbserver host group inside the host file.
         local_action: lineinfile 
                       dest="../hosts" 
                       regexp={{ item.private_ip }} 
